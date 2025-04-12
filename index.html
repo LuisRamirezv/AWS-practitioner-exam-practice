@@ -25,11 +25,15 @@
     </form>
   </div>
 
-  <div class="coffee-container">
-    <iframe id='kofiframe' src='https://ko-fi.com/luisramirezcoffee/?hidefeed=true&widget=true&embed=true&preview=true' 
-    style='border-radius: 55px;border: 2px solid rgb(255, 255, 255);box-shadow: 5px 10px red;' 
-    height='670' 
-    title='luisramirezcoffee'></iframe>
+  <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+  <script>
+    kofiWidgetOverlay.draw('luisramirezcoffee', {
+      'type': 'floating-chat',
+      'floating-chat.donateButton.text': 'Support Me',
+      'floating-chat.donateButton.background-color': '#00b9fe',
+      'floating-chat.donateButton.text-color': '#fff'
+    });
+  </script>
   </div>
 
   <script src="aws_cloud_practitioner_quiz.js"></script>
