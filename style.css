@@ -1,7 +1,7 @@
 body {
   font-family: Arial, sans-serif;
   background: #f4f4f4;
-  padding: 20px;
+  padding: 40px;
 }
 
 .container {
@@ -9,7 +9,7 @@ body {
   margin: auto;
   background: white;
   padding: 30px;
-  border-radius: 12px;
+  border-radius: 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
@@ -48,7 +48,7 @@ h1 {
 
 .options label {
   display: block;
-  margin: 6px 0;
+  margin: 8px 0;
   background: #f9f9f9;
   padding: 8px 12px;
   border-radius: 8px;
@@ -77,6 +77,7 @@ h1 {
 .submit-btn {
   background-color: #007bff;
   color: white;
+  
 }
 
 .submit-btn:hover {
@@ -100,7 +101,7 @@ h1 {
   margin-top: 25px;
   font-size: 20px;
 }
-.coffee-button{
+.coffee-container{
   text-align: center;
-  margin-top: 25px;
+  margin-top: 55px;
 }
