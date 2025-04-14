@@ -419,6 +419,46 @@ const questions = [
   }
 ];
 
+
+let examDuration = 120 * 60; // 120 minutes in seconds
+let countdownInterval;
+
+function formatTime(seconds) {
+  const h = String(Math.floor(seconds / 3600)).padStart(2, '0');
+  const m = String(Math.floor((seconds % 3600) / 60)).padStart(2, '0');
+  const s = String(seconds % 60).padStart(2, '0');
+  return `${h}:${m}:${s}`;
+}
+
+function startTimer() {
+  const timerDisplay = document.getElementById("timer");
+  countdownInterval = setInterval(() => {
+    examDuration--;
+    if (examDuration <= 0) {
+      clearInterval(countdownInterval);
+      timerDisplay.textContent = "Time's up!";
+      document.getElementById("nextBtn").disabled = true;
+      document.getElementById("result").textContent = "Time's up! Exam ended.";
+    } else {
+      timerDisplay.textContent = `Time Remaining: ${formatTime(examDuration)}`;
+    }
+  }, 1000);
+}
+
+function startExam() {
+  document.getElementById("startScreen").style.display = "none";
+  document.getElementById("examContent").style.display = "block";
+  startTimer();
+  initQuiz(); // Assumes your quiz logic is inside a function named `initQuiz`
+}
+
+// Attach event listener to Start button
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("startExamBtn").addEventListener("click", startExam);
+});
+
+
+
 // Initialize variables
 let currentQuestion = 0;
 let score = 0;

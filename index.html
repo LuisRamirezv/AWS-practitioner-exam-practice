@@ -7,9 +7,20 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
+
+  <!-- Start Screen -->
+  <div class="start-screen" id="startScreen">
+    <h1>Ready to Start the Exam?</h1>
+    <button id="startExamBtn" class="submit-btn">Start Exam</button>
+  </div>
+
+  <!-- Main Exam Content (Hidden initially) -->
+  <div class="container" id="examContent" style="display: none;">
     <h1>AWS Certified Cloud Practitioner Practice Exams</h1>
-    
+
+    <!-- Timer -->
+    <div class="timer" id="timer">Time Remaining: 02:00:00</div>
+
     <!-- Progress Bar -->
     <div class="progress-bar">
       <div class="progress-fill" id="progressFill"></div>
@@ -34,7 +45,6 @@
       'floating-chat.donateButton.text-color': '#fff'
     });
   </script>
-  </div>
 
   <script src="aws_cloud_practitioner_quiz.js"></script>
 </body>
