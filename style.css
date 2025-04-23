@@ -17,10 +17,32 @@ body {
   flex: 3;
 }
 
-.question-sidebar {
-  flex: 1;
-  border-left: 2px solid #eee;
-  padding-left: 20px;
+.question-sidebar ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+
+.question-sidebar ul li {
+  width: 40px;
+  height: 40px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.question-sidebar ul li:hover {
+  background-color: #0056b3;
 }
 
 .question-sidebar h3 {

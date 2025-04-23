@@ -16,37 +16,40 @@
 
   <!-- Main Exam Content -->
   <div class="container" id="examContent" style="display: none;">
+
+    <!-- Sidebar for Questions List -->
+    <div class="question-sidebar">
+      <ul id="questionListItems"></ul>
+    </div>
+  
+    <!-- Main Exam Content -->
     <div class="exam-main">
       <h1>AWS Certified Cloud Practitioner Practice Exams</h1>
-
+  
       <!-- Timer -->
       <div class="timer" id="timer">Time Remaining: 02:00:00</div>
-
+  
       <!-- Progress Bar -->
       <div class="progress-bar">
         <div class="progress-fill" id="progressFill"></div>
       </div>
-
+  
       <form id="examForm">
         <div id="question-container"></div>
-
+  
         <div class="button-group">
           <button type="button" class="submit-btn" id="backBtn">Back</button>
           <button type="button" class="submit-btn" id="nextBtn">Next</button>
           <button type="button" class="try-again-btn" id="tryAgainBtn" style="display:none;">Try Again</button>
         </div>
-
+  
         <div class="result" id="result"></div>
       </form>
     </div>
-
-    <!-- Sidebar for Questions List -->
-    <div class="question-sidebar">
-      <h3>Questions</h3>
-      <ul id="questionListItems"></ul>
-    </div>
+  
   </div>
 
-  <script src="aws_cloud_practitioner_quiz.js"></script>
+  <script src="questions.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
