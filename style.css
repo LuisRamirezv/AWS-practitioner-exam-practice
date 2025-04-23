@@ -40,18 +40,25 @@ body {
 }
 
 #questionListItems li {
-  flex: 0 0 auto;
+  padding: 8px 10px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.3s;
 }
 
-#questionListItems li button {
-  width: 35px;
-  height: 35px;
+.question-sidebar ul li {
+  width: 40px;
+  height: 40px;
+  background-color: #007bff;
+  color: white;
   border-radius: 50%;
-  border: none;
-  background-color: #e0e0e0;
-  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-weight: bold;
-  transition: background-color 0.3s;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
 
 #questionListItems li button:hover {
