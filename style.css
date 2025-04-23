@@ -40,10 +40,7 @@ body {
 }
 
 #questionListItems li {
-  padding: 8px 10px;
-  margin-bottom: 5px;
   cursor: pointer;
-  border-radius: 6px;
   transition: background 0.3s;
 }
 

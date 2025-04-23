@@ -120,7 +120,7 @@ tryAgainBtn.addEventListener("click", resetQuiz);
 function populateQuestionList() {
   questions.forEach((_, idx) => {
     const li = document.createElement("li");
-    li.textContent = `Question ${idx + 1}`;
+    li.textContent = `${idx + 1}`;
     li.addEventListener("click", () => {
       currentQuestion = idx;
       showQuestion(currentQuestion);
