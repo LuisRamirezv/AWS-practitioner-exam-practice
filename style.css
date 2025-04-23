@@ -7,42 +7,21 @@ body {
 
 .container {
   display: flex;
+  flex-direction: column; /* changed from row layout */
   max-width: 1200px;
   margin: auto;
   padding: 30px;
   gap: 30px;
 }
 
-.exam-main {
-  flex: 3;
-}
-
-.question-sidebar ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-  padding: 0;
-  list-style: none;
-  margin: 0;
-}
-
-.question-sidebar ul li {
-  width: 40px;
-  height: 40px;
-  background-color: #007bff;
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.question-sidebar ul li:hover {
-  background-color: #0056b3;
+/* Question Sidebar - now at the top */
+.question-sidebar {
+  width: 100%;
+  background: #f9f9f9;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  overflow-x: auto;
 }
 
 .question-sidebar h3 {
@@ -55,27 +34,46 @@ body {
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 #questionListItems li {
-  padding: 8px 10px;
-  margin-bottom: 5px;
+  flex: 0 0 auto;
+}
+
+#questionListItems li button {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: none;
+  background-color: #e0e0e0;
   cursor: pointer;
-  border-radius: 6px;
-  transition: background 0.3s;
-}
-
-#questionListItems li:hover {
-  background-color: #f0f8ff;
-}
-
-#questionListItems li.active {
   font-weight: bold;
-  color: #007bff;
-  background-color: #e6f0ff;
+  transition: background-color 0.3s;
 }
 
-/* Start Screen */
+#questionListItems li button:hover {
+  background-color: #cfd8dc;
+}
+
+#questionListItems li button.active {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+#questionListItems li button.answered {
+  background-color: #28a745;
+  color: white;
+}
+
+/* Exam Main */
+.exam-main {
+  width: 100%;
+}
+
 .start-screen {
   text-align: center;
   padding-top: 100px;
@@ -183,18 +181,18 @@ h1 {
 /* Responsive */
 @media (max-width: 768px) {
   .container {
-    flex-direction: column;
     padding: 20px;
   }
 
   .question-sidebar {
-    border-left: none;
-    border-top: 2px solid #eee;
-    padding-left: 0;
-    padding-top: 20px;
+    padding: 10px;
   }
 
   .timer {
     text-align: center;
+  }
+
+  #questionListItems {
+    justify-content: center;
   }
 }
