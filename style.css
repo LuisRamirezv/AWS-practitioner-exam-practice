@@ -132,8 +132,8 @@ h1 {
 
 .options label {
   display: block;
-  margin: 15px 20px;
-  padding: 8px 12px;
+  /* margin: 15px 20px; */
+  /* padding: 8px 12px; */
   border-radius: 12px;
   cursor: pointer;
   transition: background 0.5s;
