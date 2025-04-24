@@ -29,6 +29,9 @@ body {
   font-size: 18px;
   color: #007bff;
 }
+.question-sidebar{
+
+}
 
 #questionListItems {
   list-style: none;
@@ -44,22 +47,20 @@ body {
   transition: background 0.3s;
 }
 
-.question-sidebar ul li {
+#questionListItems li button {
   width: 40px;
   height: 40px;
   background-color: #007bff;
   color: white;
+  border: none;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.2s;
 }
 
 #questionListItems li button:hover {
-  background-color: #cfd8dc;
+  background-color: #0056b3; /* Darker shade for hover effect */
 }
 
 #questionListItems li button.active {
