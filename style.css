@@ -7,14 +7,14 @@ body {
 
 .container {
   display: flex;
-  flex-direction: column; /* changed from row layout */
+  flex-direction: column;
   max-width: 1200px;
   margin: auto;
   padding: 30px;
   gap: 30px;
 }
 
-/* Question Sidebar - now at the top */
+/* Question Sidebar */
 .question-sidebar {
   width: 100%;
   background: #f9f9f9;
@@ -29,9 +29,6 @@ body {
   font-size: 18px;
   color: #007bff;
 }
-.question-sidebar{
-
-}
 
 #questionListItems {
   list-style: none;
@@ -40,11 +37,6 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-}
-
-#questionListItems li {
-  cursor: pointer;
-  transition: background 0.3s;
 }
 
 #questionListItems li button {
@@ -60,18 +52,7 @@ body {
 }
 
 #questionListItems li button:hover {
-  background-color: #0056b3; /* Darker shade for hover effect */
-}
-
-#questionListItems li button.active {
-  background-color: #007bff;
-  color: white;
-  cursor: pointer;
-}
-
-#questionListItems li button.answered {
-  background-color: #28a745;
-  color: white;
+  background-color: #0056b3;
 }
 
 /* Exam Main */
@@ -82,10 +63,6 @@ body {
 .start-screen {
   text-align: center;
   padding-top: 100px;
-}
-
-.start-screen h1 {
-  margin-bottom: 30px;
 }
 
 h1 {
@@ -102,45 +79,52 @@ h1 {
   color: #d9534f;
 }
 
-/* Progress Bar */
-.progress-bar {
+/* Flip Card Styles */
+.card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card {
   width: 100%;
-  background-color: #e0e0e01c;
-  border-radius: 30px;
-  overflow: hidden;
-  margin-bottom: 30px;
-  height: 12px;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
-}
-
-.progress-fill {
-  height: 100%;
-  width: 0%;
-  background-color: #007bff;
-  transition: width 0.5s ease-in-out;
-}
-
-/* Question & Options */
-.question {
-  margin-bottom: 25px;
-}
-
-.question p {
-  font-weight: bold;
-  font-size: 18px;
-}
-
-.options label {
-  display: block;
-  /* margin: 15px 20px; */
-  /* padding: 8px 12px; */
+  height: 180px;
+  position: relative;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
   border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  transition: background 0.5s;
 }
 
-.options label:hover {
-  background: #e6f0ff;
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.card-front {
+  background-color: #f9f9f9;
+  color: #007bff;
+}
+
+.card-back {
+  background-color: #d4edda;
+  color: #155724;
+  transform: rotateY(180deg);
 }
 
 /* Buttons */
@@ -175,7 +159,6 @@ h1 {
   background-color: #1e7e34;
 }
 
-/* Result */
 .result {
   text-align: center;
   font-weight: bold;
@@ -195,9 +178,5 @@ h1 {
 
   .timer {
     text-align: center;
-  }
-
-  #questionListItems {
-    justify-content: center;
   }
 }

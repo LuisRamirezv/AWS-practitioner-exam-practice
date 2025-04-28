@@ -52,9 +52,13 @@ function showQuestion(index) {
       <div class="options">`;
 
   q.options.forEach((opt) => {
-    html += `<label>
-      <input type="radio" name="option" value="${opt}"> ${opt}
-    </label><br>`;
+    html += `
+      <div class="card-container">
+        <div class="card">
+          <div class="card-front">${opt}</div>
+          <div class="card-back">${opt === q.answer ? 'Correct!' : 'Wrong!'}</div>
+        </div>
+      </div>`;
   });
 
   html += `</div></div>`;
@@ -62,6 +66,12 @@ function showQuestion(index) {
 
   updateProgressBar();
   highlightCurrentInList(index);
+
+  // Attach flip functionality to the card elements
+  const cards = document.querySelectorAll('.card-container');
+  cards.forEach(card => {
+    card.addEventListener('click', () => flipCard(card));
+  });
 }
 
 function getSelectedOption() {
@@ -139,3 +149,15 @@ function highlightCurrentInList(index) {
     li.classList.toggle("active", i === index);
   });
 }
+
+// Function to flip the card when clicked
+function flipCard(cardElement) {
+  const card = cardElement.querySelector('.card');
+  card.classList.toggle('flipped'); // Toggle the flipped class on click
+}
+
+// Attach flipCard function to each card in your list
+const cards = document.querySelectorAll('.card-container');
+cards.forEach(card => {
+  card.addEventListener('click', () => flipCard(card));
+});
