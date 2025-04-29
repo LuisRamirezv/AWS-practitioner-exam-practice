@@ -18,6 +18,7 @@ function formatTime(seconds) {
   return `${h}:${m}:${s}`;
 }
 
+// Function to handle the countdown timer
 function startTimer() {
   const timerDisplay = document.getElementById("timer");
   countdownInterval = setInterval(() => {
@@ -33,6 +34,7 @@ function startTimer() {
   }, 1000);
 }
 
+// Function to stop the timer
 function startExam() {
   document.getElementById("startScreen").style.display = "none";
   document.getElementById("examContent").style.display = "flex";
@@ -44,7 +46,7 @@ function startExam() {
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("startExamBtn").addEventListener("click", startExam);
 });
-
+// Function to show the current question
 function showQuestion(index) {
   const q = questions[index];
   let html = `<div class="question">
@@ -53,10 +55,13 @@ function showQuestion(index) {
 
   q.options.forEach((opt) => {
     html += `
-        <div class="card-container" data-option="${opt}">
+        <div class="card-container" data-option="${opt.text}">
           <div class="card">
-            <div class="card-front">${opt}</div>
-            <div class="card-back">${opt === q.answer ? 'Correct!' : 'Wrong!'}</div>
+            <div class="card-front">${opt.text}</div>
+            <div class="card-back">
+              ${opt.text === q.answer ? 'Correct!' : 'Wrong!'}
+              <div class="explanation">${opt.explanation}</div>
+            </div>
           </div>
         </div>`;
   });
@@ -83,6 +88,22 @@ function showQuestion(index) {
     });
   });
 }
+
+  // Attach flip functionality and selection handling to the card containers
+  const cardContainers = document.querySelectorAll('.card-container');
+  cardContainers.forEach(container => {
+    container.addEventListener('click', () => {
+      const card = container.querySelector('.card');
+      card.classList.toggle('flipped');
+      // Remove selection from other options
+      cardContainers.forEach(otherContainer => {
+        if (otherContainer !== container) {
+          otherContainer.classList.remove('selected');
+        }
+      });
+      container.classList.toggle('selected'); // Add selected class to the clicked container
+    });
+  });
 
 function getSelectedOption() {
   const selectedContainer = document.querySelector('.card-container.selected');

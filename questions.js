@@ -2,7 +2,24 @@
 const questions = [
     {
       question: "AWS allows users to manage their resources using a web based user interface. What is the name of this interface?",
-      options: ["AWS CLI", "AWS API", "AWS SDK", "AWS Management Console"],
+    "options": [
+      {
+        "text": "AWS CLI",
+        "explanation": "The AWS Command Line Interface (CLI) is a unified tool to manage your AWS services from a command line."
+      },
+      {
+        "text": "AWS API",
+        "explanation": "The AWS Application Programming Interface (API) provides programmatic access to AWS services."
+      },
+      {
+        "text": "AWS SDK",
+        "explanation": "The AWS Software Development Kits (SDKs) enable you to use AWS services with your applications in various programming languages."
+      },
+      {
+        "text": "AWS Management Console",
+        "explanation": "The AWS Management Console is a web-based user interface for managing and accessing AWS services."
+      }
+    ],
       answer: "AWS Management Console"
     },
     {
