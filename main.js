@@ -49,16 +49,16 @@ function showQuestion(index) {
   const q = questions[index];
   let html = `<div class="question">
       <p>${index + 1}. ${q.question}</p>
-      <div class="options">`;
+      <div class="options-grid">`; // Changed class name
 
   q.options.forEach((opt) => {
     html += `
-      <div class="card-container">
-        <div class="card">
-          <div class="card-front">${opt}</div>
-          <div class="card-back">${opt === q.answer ? 'Correct!' : 'Wrong!'}</div>
-        </div>
-      </div>`;
+        <div class="card-container" data-option="${opt}">
+          <div class="card">
+            <div class="card-front">${opt}</div>
+            <div class="card-back">${opt === q.answer ? 'Correct!' : 'Wrong!'}</div>
+          </div>
+        </div>`;
   });
 
   html += `</div></div>`;
@@ -67,16 +67,26 @@ function showQuestion(index) {
   updateProgressBar();
   highlightCurrentInList(index);
 
-  // Attach flip functionality to the card elements
-  const cards = document.querySelectorAll('.card-container');
-  cards.forEach(card => {
-    card.addEventListener('click', () => flipCard(card));
+  // Attach flip functionality and selection handling to the card containers
+  const cardContainers = document.querySelectorAll('.card-container');
+  cardContainers.forEach(container => {
+    container.addEventListener('click', () => {
+      const card = container.querySelector('.card');
+      card.classList.toggle('flipped');
+      // Remove selection from other options
+      cardContainers.forEach(otherContainer => {
+        if (otherContainer !== container) {
+          otherContainer.classList.remove('selected');
+        }
+      });
+      container.classList.toggle('selected'); // Add selected class to the clicked container
+    });
   });
 }
 
 function getSelectedOption() {
-  const selected = document.querySelector('input[name="option"]:checked');
-  return selected ? selected.value : null;
+  const selectedContainer = document.querySelector('.card-container.selected');
+  return selectedContainer ? selectedContainer.dataset.option : null;
 }
 
 function updateProgressBar() {
@@ -149,15 +159,3 @@ function highlightCurrentInList(index) {
     li.classList.toggle("active", i === index);
   });
 }
-
-// Function to flip the card when clicked
-function flipCard(cardElement) {
-  const card = cardElement.querySelector('.card');
-  card.classList.toggle('flipped'); // Toggle the flipped class on click
-}
-
-// Attach flipCard function to each card in your list
-const cards = document.querySelectorAll('.card-container');
-cards.forEach(card => {
-  card.addEventListener('click', () => flipCard(card));
-});
